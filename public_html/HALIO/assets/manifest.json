@@ -1,0 +1,12 @@
+{
+  "name": "HAL大阪在籍状況",
+  "short_name": "OH在籍状況",
+  "display": "standalone",
+  "icons": [{
+      "src": "/HALIO/assets/images/HALIO.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+  "start_url": "/HALIO?homescreen",
+  "display": "standalone"
+}

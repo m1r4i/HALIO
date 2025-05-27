@@ -1,0 +1,87 @@
+/*
+teacher.css
+教員詳細画面用CSS
+*/
+	body {
+            margin: 0;
+        }
+        #container {
+            padding: 24px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2 {
+            color: var(--text);
+        }
+        .status {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .status-0 { background: #868e96; }
+        .status-1 { background: #38d9a9; }
+        .status-2 { background: #ff6b6b; }
+        .status-3 { background: #fab005; }
+
+        .tags {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background: #edf2f7;
+            color: #015CAB;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            border: 1px solid #cfd8dc;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: var(--th);
+            font-weight: bold;
+        }
+        .timetable {
+            color: #333;
+        }
+
+        .c0 { background: none !important; }
+        .c1 { background: #afffaf !important; }
+        .c2 { background: #afafff !important; }
+        .c3 { background: #ffafaf !important; }
+
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-bottom: 20px;
+            background-color: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .back-button:hover {
+            background-color: #0b69c2;
+            transform: translateY(-1px);
+        }

@@ -1,0 +1,37 @@
+/*
+root.css
+HALIO本体の各種標準CSS
+*/
+	@font-face { font-family: smartFontUI; src: url("/HALIO/03s.otf"); }
+	@font-face { font-family: ltg; src: url("/HALIO/ltg.otf"); }
+        :root {
+            --primary: #015CAB;
+             --accent: #1e90ff;
+             --bg: #f9fbfd;
+            --text: #015CAB;
+            --card-bg: #ffffff;
+            --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            --radius: 16px;
+            --th: #e3f2fd;
+            --tag-bg: #edf2f7;
+          }
+
+         /* ダークテーマ時に上書きする変数... とはいえ教員に用があるときは目を焼いてでも起きた方がいいのでは...? */
+         @media (prefers-color-scheme: dark) {
+          :root {
+            --primary: #7ab0ff;
+            --accent: #409cff;
+            --bg: #121212;
+            --text: #e0e6f0;
+            --card-bg: #1e1e1e;
+            --shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            --border: #2c2c2c;
+            --border-muted: #3a3a3a;
+            --th: #2c2f36;
+          }
+        }
+        body {
+            font-family: smartFontUI, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+	}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新ログ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 0;
+        }
+        /* iOS風ナビゲーションバー */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+        .navbar .back-button {
+            display: flex;
+            align-items: center;
+            color: #007aff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .navbar .back-button svg {
+            margin-right: 5px;
+        }
+        .navbar h1 {
+            font-size: 20px;
+            color: #333;
+            margin: 0;
+            flex: 1;
+            text-align: center;
+        }
+        .search-box {
+            max-width: 400px;
+            margin: 20px auto;
+            display: flex;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search-box input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        .search-box button {
+            padding: 10px 15px;
+            border: none;
+            background: #5a67d8;
+            color: white;
+            cursor: pointer;
+        }
+        .search-box button:hover {
+            background: #434190;
+        }
+        .log-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .log-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .log-card h2 {
+            margin: 0;
+            color: #5a67d8;
+        }
+        .log-card p {
+            margin: 10px 0 0;
+        }
+        .log-card small {
+            color: #888;
+        }
+        @media (max-width: 600px) {
+            .log-card {
+                padding: 15px;
+            }
+            .search-box {
+                flex-direction: column;
+            }
+            .search-box button {
+                width: 100%;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- iOS風ナビゲーションバー -->
+    <div class="navbar">
+        <a href="/HALIO" class="back-button" onclick="history.back();">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            戻る
+        </a>
+        <h1>更新ログ</h1>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="キーワード検索...">
+        <button onclick="searchLogs()">検索</button>
+    </div>
+    <div class="log-list" id="logList">
+        <div class="log-card">
+            <h2>ご意見箱</h2>
+            <p>ご意見などはこちらでお受けします: <a href="https://forms.gle/JLvk4sBYuWYMNpbH9" target="_contact">https://forms.gle/JLvk4sBYuWYMNpbH9</a><br><br>仕様技術などは聞かれる前にいい感じに貼っておきます:<br>PHP8, お使いのブラウザに搭載されているJavaScriptエンジンで動作するJavaScript, MariaDB, CoreServer V2(おすすめ)<br><br>データはio.osaka.hal.ac.jpのエンドポイントからどなたもアクセスしていない場合は5分に一回, どなたかがアクセスしている場合は各ユーザーごとに20秒に一回取得しています。</p>
+        </div>
+        <div class="log-card">
+            <h2>バージョン 2.3.1</h2>
+            <small>2025-05-23</small>
+            <p>みなさん、学習は進んでいますか? 私はだめです。<br>- データ取得時の処理時間を短縮しました。<br>- 一部処理を最適化しました。</p>
+        </div>
+        <div class="log-card">
+            <h2>バージョン 2.3</h2>
+            <small>2025-05-21</small>
+            <p>私はまめな方ではありませんが、さすがにリリースノートは更新しようと思います。<br>- 並び順をステータス別, 学科別に切り替え可能になりました。<br>- 教員の担当学科の情報を可能な限り反映しました。<br>- 教員の前職及び現職を反映しました。(一部間違った表記があるのは把握していますが、学校のパンフレットに合わせています。)</p>
+        </div>
+        <div class="log-card">
+            <h2>バージョン 2.1.1</h2>
+            <small>2025-04-05</small>
+            <p>ご意見求む!!<br>- ダークテーマを実験的に導入しました。 https://m1rr.info/HALIO でのみ有効です。</p>
+        </div>
+        <div class="log-card">
+            <h2>バージョン 2.1</h2>
+            <small>2025-04-05</small>
+            <p>ご入学・ご進級おめでとうございます。<br>- フィルタリング機能を使いやすくしました。<br>- ダークテーマの検討速度がリニア並みです。<br>- 正確性の参考値を算出するための投票ボタンの検討が130km/hに達しました!</p>
+        </div>
+        <div class="log-card">
+            <h2>バージョン 2.0</h2>
+            <small>2025-04-03</small>
+            <p>年度変わったのでバージョンも変えておきます。<br>- 時間割の各時間帯を新しいものに変更しました。<br>- ダークテーマを相変わらず検討中です<br>- 正確性の参考値を算出するための投票ボタンの検討を加速中...</p>
+        </div>
+        <div class="log-card">
+            <h2>バージョン 1.3</h2>
+            <small>2025-03-28</small>
+            <p>新年度、楽しみですね!<br>- 新たなゲーム企画の先生を追加しました。<br>- デザインを整えました。 あ、前の方がよかった? そんなこと言わないで; ;<br>- ダークテーマを検討中です<br>- 正確性の参考値を算出するために投票ボタン(ほら、Yahoo天気とかでよくあるでしょ?)を検討中...</p>
+        </div>
+        <div class="log-card">
+            <h2>バージョン 1.2</h2>
+            <small>2025-03-12</small>
+            <p>更新ログを更新しました。<br>- 一部端末では対応していませんが、トップページで教務室のレイアウトを見れるようにしました。<br>- 各教員の内線番号を表示しました。<br>- 一部教員の担当学科の情報を更新しました。</p>
+        </div>
+        <div class="log-card">
+            <h2>バージョン 1.0</h2>
+            <small>2025-02-17</small>
+            <p>- 更新ログをつけ始めました。<br>- 曜日別時間帯別の在室情報の計算方法を修正し、各時間帯ごとの在室時間を元に割合を算出するようにしました。<br>- 独断と偏見で備考をつけました。<br><br>現在の既知のバグ: <br>- iOSにおいてタイムラインが表示されない。<br><br>仕様として確定: <br>- テーブルのレイアウトがいまいち。<br>- 情報が正しくない(先生方に在室状況を正しく入力するように依頼してください。 こればっかりは仕方がない)</p>
+        </div>
+    </div>
+
+    <script>
+        function searchLogs() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.log-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(input) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
